@@ -1,0 +1,485 @@
+/* ============ VARIABLES ============ */
+:root {
+  --maroon: #6b1420;
+  --maroon-dark: #4a0d16;
+  --gold: #c9a24b;
+  --gold-light: #e6cf94;
+  --ivory: #fbf7ee;
+  --sand: #f1e8d4;
+  --ink: #2a1a1a;
+}
+
+/* ============ ELEMENT SELECTORS ============ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  font-family: "Source Sans 3", Arial, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background-color: var(--ivory);
+}
+
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  color: var(--maroon);
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin: 0 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--gold);
+  display: inline-block;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+a {
+  color: var(--maroon);
+}
+
+a:hover {
+  color: var(--gold);
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+address {
+  font-style: normal;
+  line-height: 1.9;
+}
+
+/* ============ HEADER ============ */
+#top-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 2rem;
+  background-color: var(--maroon);
+  border-bottom: 4px solid var(--gold);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.logo {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid var(--gold);
+  object-fit: contain;
+}
+
+.brand p {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.college-name {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--gold-light);
+}
+
+.dept-name {
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+/* ============ NAVIGATION + DROPDOWN ============ */
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.2rem;
+}
+
+.menu li {
+  position: relative;
+}
+
+.menu > li > a {
+  display: block;
+  padding: 0.8rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.menu > li > a:hover,
+.menu > li:focus-within > a {
+  background-color: var(--gold);
+  color: var(--maroon-dark);
+}
+
+.dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 230px;
+  background-color: var(--ivory);
+  border-top: 3px solid var(--gold);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+}
+
+.has-dropdown:hover > .dropdown,
+.has-dropdown:focus-within > .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown a {
+  display: block;
+  padding: 0.6rem 1.2rem;
+  color: var(--maroon);
+  text-decoration: none;
+  border-left: 4px solid transparent;
+}
+
+.dropdown a:hover {
+  background-color: var(--sand);
+  border-left-color: var(--maroon);
+  color: var(--maroon-dark);
+}
+
+/* Mobile menu toggle (hidden on desktop) */
+#menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  color: var(--gold-light);
+  cursor: pointer;
+}
+
+/* ============ HERO ============ */
+.hero {
+  padding: 6rem 2rem 5rem;
+  background-color: var(--maroon-dark);
+  background-image: linear-gradient(135deg, var(--maroon-dark) 55%, var(--maroon) 100%);
+  color: #fff;
+}
+
+.hero-text {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hero-college {
+  color: var(--gold-light);
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: 4rem;
+  margin: 0 0 1rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 62ch;
+}
+
+/* ============ BUTTONS (class selectors) ============ */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.6rem;
+  margin: 0 0.5rem 0.5rem 0;
+  background-color: var(--gold);
+  color: var(--maroon-dark);
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: var(--gold-light);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-outline:hover {
+  background-color: #fff;
+  color: var(--maroon);
+}
+
+.btn-gold {
+  background-color: var(--maroon);
+  color: #fff;
+  border-color: var(--maroon);
+}
+
+.btn-gold:hover {
+  background-color: var(--maroon-dark);
+  color: var(--gold-light);
+}
+
+/* ============ BLISSPOINT BANNER (ID selector) ============ */
+#blisspoint-banner {
+  background-color: var(--gold);
+  border-top: 4px solid var(--maroon);
+  border-bottom: 4px solid var(--maroon);
+  padding: 2.5rem 2rem;
+}
+
+.banner-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.banner-inner h2 {
+  color: var(--maroon-dark);
+  font-size: 2.8rem;
+  border-bottom: none;
+  margin-bottom: 0.4rem;
+  padding-bottom: 0;
+}
+
+.banner-inner p {
+  max-width: 60ch;
+  margin: 0 auto 1.4rem;
+  color: var(--maroon-dark);
+  font-size: 1.15rem;
+}
+
+/* ============ CONTENT SECTIONS ============ */
+.content {
+  padding: 4rem 2rem;
+}
+
+.content > * {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content > h2 {
+  display: block;
+  width: fit-content;
+  margin-left: max(2rem, calc((100% - 900px) / 2));
+}
+
+.content.alt {
+  background-color: var(--sand);
+}
+
+.note {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #7a5a5a;
+}
+
+.highlights li {
+  margin-bottom: 0.4rem;
+}
+
+.highlights li::marker {
+  color: var(--gold);
+}
+
+/* ============ TABLES ============ */
+.data-table {
+  width: 100%;
+  max-width: 900px;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 2px solid var(--maroon);
+  margin-top: 1rem;
+}
+
+.data-table th {
+  background-color: var(--maroon);
+  color: var(--gold-light);
+  text-align: left;
+  padding: 0.8rem 1rem;
+}
+
+.data-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--sand);
+}
+
+.data-table tbody tr:nth-child(even) {
+  background-color: var(--ivory);
+}
+
+.data-table tbody tr:hover {
+  background-color: var(--gold-light);
+}
+
+/* ============ COURSE CARDS ============ */
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin-top: 1rem;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid var(--gold);
+  border-top: 6px solid var(--maroon);
+  border-radius: 4px;
+  padding: 1.4rem;
+  transition: border-top-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  border-top-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.card ul {
+  margin: 0;
+}
+
+/* ============ BLISSPOINT SECTION ============ */
+.blisspoint {
+  background-color: var(--maroon-dark);
+  color: #fff;
+}
+
+.blisspoint h2 {
+  color: var(--gold-light);
+}
+
+.blisspoint .note {
+  color: var(--gold-light);
+}
+
+/* ============ FOOTER ============ */
+#site-footer {
+  background-color: var(--maroon);
+  border-top: 4px solid var(--gold);
+  color: var(--gold-light);
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+#site-footer p {
+  margin: 0;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 860px) {
+  #top-header {
+    flex-wrap: wrap;
+    padding: 0.6rem 1rem;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  #main-nav {
+    width: 100%;
+    display: none;
+  }
+
+  #menu-toggle:checked ~ #main-nav {
+    display: block;
+  }
+
+  .menu {
+    flex-direction: column;
+    padding: 0.5rem 0 1rem;
+  }
+
+  .dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background-color: var(--maroon-dark);
+    border-top: none;
+    margin-left: 1rem;
+  }
+
+  .dropdown a {
+    color: var(--gold-light);
+  }
+
+  .dropdown a:hover {
+    background-color: var(--maroon);
+    color: #fff;
+  }
+
+  .hero {
+    padding: 4rem 1.2rem 3rem;
+  }
+
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .content {
+    padding: 3rem 1.2rem;
+  }
+
+  .content > h2 {
+    margin-left: auto;
+  }
+
+  .data-table {
+    font-size: 0.95rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
